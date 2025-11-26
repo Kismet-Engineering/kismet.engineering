@@ -1,0 +1,246 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Kismet Engineering | Cloud systems for what comes next',
+  description = 'Forward-thinking cloud product studio crafting resilient platforms and data fabrics.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #050918;
+        --bg-2: #0c1430;
+        --panel: #112448;
+        --muted: #b2c2e3;
+        --border: #22345a;
+        --text: #edf2ff;
+        --accent: #ff7be5;
+        --accent-2: #7af5e4;
+        --glow: rgba(122, 245, 228, 0.28);
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+        background:
+          radial-gradient(circle at 20% 18%, rgba(255, 123, 229, 0.14), transparent 32%),
+          radial-gradient(circle at 84% 14%, rgba(122, 245, 228, 0.14), transparent 34%),
+          radial-gradient(circle at 30% 78%, rgba(110, 162, 255, 0.08), transparent 40%),
+          linear-gradient(155deg, var(--bg), var(--bg-2));
+        color: var(--text);
+        min-height: 100vh;
+        letter-spacing: -0.01em;
+      }
+
+      a {
+        color: var(--accent-2);
+        text-decoration: none;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(14px);
+        background: rgba(4, 9, 21, 0.8);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .brand-mark {
+        width: 104px;
+        height: 104px;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 0;
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.28));
+      }
+
+      .brand-name {
+        font-family: 'Bungee Shade', 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+        letter-spacing: 0.03em;
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: var(--text);
+        padding: 0.5rem 0.75rem;
+        border-radius: 10px;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: white;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.2rem;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        box-shadow: var(--shadow);
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.16);
+      }
+
+      .btn.primary {
+        background: linear-gradient(120deg, var(--accent-2), var(--accent));
+        color: #050712;
+        border: none;
+        box-shadow: 0 14px 32px rgba(122, 245, 228, 0.35);
+      }
+
+      .btn.primary:hover {
+        transform: translateY(-1px) scale(1.01);
+      }
+
+      .page {
+        padding: 2.5rem 1.25rem 3.5rem;
+      }
+
+      .shell {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem 1.25rem 3rem;
+        background: rgba(4, 9, 21, 0.85);
+      }
+
+      .footer-content {
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 720px) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .page {
+          padding: 2rem 1rem 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="/logo-mark.png" alt="Kismet Engineering logo" />
+          </span>
+          <span class="brand-name">Kismet Engineering</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#intro">About</a>
+          <a href="#builds">What we build</a>
+          <a href="#principles">How we work</a>
+          <a class="btn" href="mailto:info@kismet.engineering?subject=Kismet%20Engineering">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <div class="shell">
+        <slot />
+      </div>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <span>Reliability made routine.</span>
+        <span>Reach us: <a href="mailto:info@kismet.engineering">info@kismet.engineering</a></span>
+      </div>
+    </footer>
+  </body>
+</html>
